@@ -107,7 +107,7 @@ do
   --  For more options, you can see `:help option-list`
 
   -- Make line numbers default
-  vim.o.number = true
+  vim.o.number = false
   -- You can also add relative line numbers, to help with jumping.
   --  Experiment for yourself to see if you like it!
   -- vim.o.relativenumber = true
@@ -361,6 +361,8 @@ do
     },
   }
 
+--[[ NicoCraft31: disabled which-key
+
   -- Useful plugin to show you pending keybinds.
   vim.pack.add { gh 'folke/which-key.nvim' }
   require('which-key').setup {
@@ -375,6 +377,7 @@ do
       { 'gr', group = 'LSP Actions', mode = { 'n' } },
     },
   }
+]]
 
   -- [[ Colorscheme ]]
   -- You can easily change to a different colorscheme.
@@ -692,7 +695,7 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    -- clangd = {},
+    clangd = { cmd = {'clangd'} },
     -- gopls = {},
     -- pyright = {},
     -- rust_analyzer = {},
@@ -984,3 +987,9 @@ end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+-- NicoCraft31:
+vim.opt.fileencoding='utf-8'
+vim.opt.encoding='utf-8'
+vim.opt.expandtab=true              -- Tabs to spaces
+vim.opt.tabstop=4
+vim.opt.shiftwidth=4
